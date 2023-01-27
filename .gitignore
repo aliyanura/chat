@@ -1,0 +1,12 @@
+**/migrations/0**
+db.sqlite3
+.venv/*
+*/__pacache__/*
+db.sqlite3
+.env
+.idea/
+back_media/
+static/
+media/
+venv/
+*.pyc
