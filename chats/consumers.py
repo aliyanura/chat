@@ -1,11 +1,9 @@
-from channels.db import database_sync_to_async
-from djangochannelsrestframework.generics import GenericAsyncAPIConsumer
-from djangochannelsrestframework.observer.generics import (ObserverModelInstanceMixin, action)
+from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 from chats.models import Message, Chat
 
 
-class ChatConsumer(ObserverModelInstanceMixin, GenericAsyncAPIConsumer):
+class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         self.chat_pk = self.scope['url_route']['kwargs']['chat_pk']
         self.room_group_name = 'chat_%s' % self.room_name
